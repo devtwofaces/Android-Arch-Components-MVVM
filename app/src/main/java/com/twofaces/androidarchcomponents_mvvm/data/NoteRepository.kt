@@ -4,16 +4,17 @@ import androidx.annotation.WorkerThread
 import com.twofaces.androidarchcomponents_mvvm.data.db.NoteDatabase
 import com.twofaces.androidarchcomponents_mvvm.data.db.entities.Note
 import com.twofaces.androidarchcomponents_mvvm.data.db.entities.NoteDao
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.flow.Flow
 
 import javax.inject.Inject
+
 
 class NoteRepository @Inject constructor(
 //    private val noteDatabase: NoteDatabase,
     private val noteDao: NoteDao
 ) {
-
-    val allNotes: Flow<List<Note>> = noteDao.getAllNotes()
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
@@ -31,6 +32,10 @@ class NoteRepository @Inject constructor(
     @WorkerThread
     suspend fun deleteAllNotes(){
         noteDao.deleteALlNotes()
+    }
+    @WorkerThread
+    fun getAllNotes(): Flow<List<Note>>{
+        return noteDao.getAllNotes()
     }
 
 }
