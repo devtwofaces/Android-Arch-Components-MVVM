@@ -45,5 +45,9 @@ false
         notifyDataSetChanged()
     }
 
+    fun getNoteAt(pos: Int): Note{
+        return notes[pos]
+    }
+
 
 }

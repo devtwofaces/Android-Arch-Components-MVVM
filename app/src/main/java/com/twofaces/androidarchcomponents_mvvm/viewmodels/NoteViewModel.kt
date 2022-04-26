@@ -26,7 +26,7 @@ class NoteViewModel @Inject constructor(private val noteRepository: NoteReposito
         noteRepository.delete(note)
     }
 
-    fun deleteAllNotes(note: Note) = viewModelScope.launch {
+    fun deleteAllNotes() = viewModelScope.launch {
         noteRepository.deleteAllNotes()
     }
 
