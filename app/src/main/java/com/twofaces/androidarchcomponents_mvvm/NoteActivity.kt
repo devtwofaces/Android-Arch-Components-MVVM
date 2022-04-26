@@ -13,12 +13,16 @@ import com.twofaces.androidarchcomponents_mvvm.databinding.ActivityMainBinding
 import com.twofaces.androidarchcomponents_mvvm.databinding.ActivityNoteBinding
 import com.twofaces.androidarchcomponents_mvvm.viewmodels.NoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class NoteActivity : AppCompatActivity() {
 
     private lateinit var noteBinding: ActivityNoteBinding
+
+    @Inject
+    lateinit var adapter: NotesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,9 +38,8 @@ class NoteActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
 
-        val adapter = NotesAdapter()
-        recyclerView.adapter = adapter
 
+        recyclerView.adapter = adapter
 
         viewModel.getAllNotes().observe(this, Observer<List<Note>> {
             Toast.makeText(this, "observer()", Toast.LENGTH_SHORT).show()

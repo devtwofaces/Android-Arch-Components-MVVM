@@ -11,7 +11,7 @@ import com.twofaces.androidarchcomponents_mvvm.databinding.NoteItemBinding
 
 class NotesAdapter(): RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
 
-    var notes: List<Note> = ArrayList<Note>()
+    private var notes: List<Note> = ArrayList<Note>()
 
     class ViewHolder(binding: NoteItemBinding): RecyclerView.ViewHolder(binding.root){
         var textViewTitle: TextView = binding.textViewTitle
