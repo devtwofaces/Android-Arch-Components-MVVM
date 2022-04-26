@@ -1,13 +1,9 @@
 package com.twofaces.androidarchcomponents_mvvm.data
 
 import androidx.annotation.WorkerThread
-import com.twofaces.androidarchcomponents_mvvm.data.db.NoteDatabase
 import com.twofaces.androidarchcomponents_mvvm.data.db.entities.Note
 import com.twofaces.androidarchcomponents_mvvm.data.db.entities.NoteDao
-import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.flow.Flow
-
 import javax.inject.Inject
 
 

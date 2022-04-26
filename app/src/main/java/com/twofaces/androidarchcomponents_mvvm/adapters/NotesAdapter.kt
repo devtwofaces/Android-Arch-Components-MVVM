@@ -2,12 +2,13 @@ package com.twofaces.androidarchcomponents_mvvm.adapters
 
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.twofaces.androidarchcomponents_mvvm.data.db.entities.Note
 import com.twofaces.androidarchcomponents_mvvm.databinding.NoteItemBinding
+
+
 
 class NotesAdapter(): RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
 

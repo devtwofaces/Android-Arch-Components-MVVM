@@ -7,7 +7,7 @@ import com.twofaces.androidarchcomponents_mvvm.data.db.entities.NoteDao
 
 
 
-@Database(entities = [Note::class], version = 1, exportSchema = true)
+@Database(entities = [Note::class], version = 1, exportSchema = false)
 abstract class NoteDatabase: RoomDatabase() {
     abstract fun noteDao(): NoteDao
 }

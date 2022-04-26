@@ -11,8 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NoteViewModel @Inject constructor(private val noteRepository: NoteRepository): ViewModel() {
-
+class AddNoteViewModel @Inject constructor(private val noteRepository: NoteRepository): ViewModel() {
 
     fun insert(note: Note) = viewModelScope.launch {
         noteRepository.insert(note)
@@ -31,6 +30,5 @@ class NoteViewModel @Inject constructor(private val noteRepository: NoteReposito
     }
 
     fun getAllNotes(): LiveData<List<Note>> = noteRepository.getAllNotes().asLiveData()
-
 
 }

@@ -7,7 +7,6 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.twofaces.androidarchcomponents_mvvm.data.NoteRepository
 import com.twofaces.androidarchcomponents_mvvm.data.db.NoteDatabase
 import com.twofaces.androidarchcomponents_mvvm.data.db.entities.Note
-import com.twofaces.androidarchcomponents_mvvm.data.db.entities.NoteDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,6 +36,7 @@ object DatabaseModule {
                         noteRepositoryProvider.get().insert(Note(0, "Title 1", "Description 1", 1))
                         noteRepositoryProvider.get().insert(Note(0, "Title 2", "Description 2", 2))
                         noteRepositoryProvider.get().insert(Note(0, "Title 3", "Description 3", 3))
+                        noteRepositoryProvider.get().insert(Note(0, "Title 4", "Description 4", 4))
                     }
                 }
             }

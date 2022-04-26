@@ -14,6 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidArchComponentsMVVM">
         <activity
+            android:name=".AddNoteActivity"
+            android:exported="false"
+            android:parentActivityName=".NoteActivity"
+            />
+        <activity
             android:name=".NoteActivity"
             android:exported="true">
             <intent-filter>
