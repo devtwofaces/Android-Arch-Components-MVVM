@@ -1,4 +1,4 @@
-package com.twofaces.androidarchcomponents_mvvm
+package com.twofaces.androidarchcomponents_mvvm.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
