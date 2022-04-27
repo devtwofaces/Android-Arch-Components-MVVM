@@ -1,6 +1,5 @@
 package com.twofaces.androidarchcomponents_mvvm
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +8,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -21,7 +19,6 @@ import com.twofaces.androidarchcomponents_mvvm.databinding.ActivityNoteBinding
 import com.twofaces.androidarchcomponents_mvvm.utilities.*
 import com.twofaces.androidarchcomponents_mvvm.viewmodels.NoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 
 @AndroidEntryPoint

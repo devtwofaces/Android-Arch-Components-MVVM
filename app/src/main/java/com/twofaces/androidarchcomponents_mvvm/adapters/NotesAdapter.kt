@@ -2,7 +2,6 @@ package com.twofaces.androidarchcomponents_mvvm.adapters
 
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.twofaces.androidarchcomponents_mvvm.data.db.entities.Note
 import com.twofaces.androidarchcomponents_mvvm.databinding.NoteItemBinding
-
 
 
 class NotesAdapter(private val listener: OnItemClickListener): ListAdapter<Note, NotesAdapter.ViewHolder>(DiffCallback()) {
