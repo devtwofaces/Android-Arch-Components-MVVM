@@ -3,6 +3,7 @@ package com.twofaces.androidarchcomponents_mvvm
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -15,19 +16,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.twofaces.androidarchcomponents_mvvm.adapters.NotesAdapter
 import com.twofaces.androidarchcomponents_mvvm.data.db.entities.Note
 import com.twofaces.androidarchcomponents_mvvm.databinding.ActivityNoteBinding
+import com.twofaces.androidarchcomponents_mvvm.utilities.*
 import com.twofaces.androidarchcomponents_mvvm.viewmodels.NoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 
 @AndroidEntryPoint
-class NoteActivity : AppCompatActivity() {
+class NoteActivity : AppCompatActivity(), NotesAdapter.OnItemClickListener {
 
     private lateinit var noteBinding: ActivityNoteBinding
     private lateinit var noteViewModel: NoteViewModel
 
-    @Inject
-    lateinit var adapter: NotesAdapter
+    var adapter = NotesAdapter(this)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,9 +74,18 @@ class NoteActivity : AppCompatActivity() {
             }
         ).attachToRecyclerView(noteBinding.noteActivityRecyclerViewNotes)
 
+    }
 
-
-
+    override fun onItemClick(note: Note) {
+        Log.d("CUSTOM_LOGS: ", "inside onItemClick()")
+        val intent = Intent(this@NoteActivity, AddEditNoteActivity::class.java)
+        intent.putExtra(EXTRA_ID, note.id)
+        intent.putExtra(EXTRA_TITLE, note.title)
+        intent.putExtra(EXTRA_DESC, note.description)
+        intent.putExtra(EXTRA_PRIORITY, note.priority)
+        intent.putExtra("REQUEST_METHOD", "EDIT_NOTE_REQUEST")
+        startActivity(intent)
+        finish()
     }
 
 
@@ -84,7 +95,7 @@ class NoteActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.noteActivity_delete_all_notes -> {
                 noteViewModel.deleteAllNotes()
                 Toast.makeText(this@NoteActivity, "All notes deleted", Toast.LENGTH_SHORT).show()
@@ -96,8 +107,8 @@ class NoteActivity : AppCompatActivity() {
 
 
     fun addNote(view: View) {
-        // Go to AddNoteActivity
-        startActivity(Intent(this, AddNoteActivity::class.java))
+        // Go to AddEditNoteActivity
+        startActivity(Intent(this, AddEditNoteActivity::class.java))
         finish()
     }
 

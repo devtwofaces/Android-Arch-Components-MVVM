@@ -12,10 +12,10 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object ActivityModule {
 
-    @Singleton
-    @Provides
-    fun providesNotesAdapter() = NotesAdapter()
-
-
+//    @Singleton
+//    @Provides
+//    fun providesNotesAdapter(listener: NotesAdapter.OnItemClickListener) = NotesAdapter(listener)
+//
+//
 
 }

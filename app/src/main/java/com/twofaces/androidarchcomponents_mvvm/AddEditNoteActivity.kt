@@ -10,15 +10,19 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.twofaces.androidarchcomponents_mvvm.data.db.entities.Note
 import com.twofaces.androidarchcomponents_mvvm.databinding.ActivityAddNoteBinding
-import com.twofaces.androidarchcomponents_mvvm.viewmodels.AddNoteViewModel
+import com.twofaces.androidarchcomponents_mvvm.utilities.EXTRA_DESC
+import com.twofaces.androidarchcomponents_mvvm.utilities.EXTRA_ID
+import com.twofaces.androidarchcomponents_mvvm.utilities.EXTRA_PRIORITY
+import com.twofaces.androidarchcomponents_mvvm.utilities.EXTRA_TITLE
+import com.twofaces.androidarchcomponents_mvvm.viewmodels.AddEditNoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class AddNoteActivity : AppCompatActivity() {
+class AddEditNoteActivity : AppCompatActivity() {
 
     private lateinit var addNoteBinding: ActivityAddNoteBinding
-    private lateinit var addNoteViewModel: AddNoteViewModel
+    private lateinit var addEditNoteViewModel: AddEditNoteViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,20 +31,25 @@ class AddNoteActivity : AppCompatActivity() {
         setContentView(addNoteBinding.root)
 //        setContentView(R.layout.activity_add_note)
 
-        addNoteViewModel = ViewModelProvider(this)[AddNoteViewModel::class.java]
-
+        addEditNoteViewModel = ViewModelProvider(this)[AddEditNoteViewModel::class.java]
 
         addNoteBinding.addNoteActivityNumberPickerPriority.minValue = 1
         addNoteBinding.addNoteActivityNumberPickerPriority.maxValue = 10
 
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close)
-        title = "Add Note"
+
+        if(intent.hasExtra(EXTRA_ID)){
+            title = "Edit Note"
+            addNoteBinding.addNoteActivityTitle.setText(intent.getStringExtra(EXTRA_TITLE))
+            addNoteBinding.addNoteActivityDescription.setText(intent.getStringExtra(EXTRA_DESC))
+            addNoteBinding.addNoteActivityNumberPickerPriority.value = intent.getIntExtra(EXTRA_PRIORITY, 1)
 
 
-
+        }
+        else {
+            title = "Add Note"
+        }
     }
-
-
 
     private fun saveNote(){
         val title: String = addNoteBinding.addNoteActivityTitle.text.toString()
@@ -51,7 +60,17 @@ class AddNoteActivity : AppCompatActivity() {
             Toast.makeText(this, "Please insert a title and description.", Toast.LENGTH_SHORT).show()
             return
         }
-        addNoteViewModel.insert(Note(0, title, desc, priority))
+
+        if(intent.getStringExtra("REQUEST_METHOD") == "EDIT_NOTE_REQUEST"){
+            if(intent.getIntExtra(EXTRA_ID, -1) == -1){
+                Toast.makeText(this, "Note cannot be updated.", Toast.LENGTH_SHORT).show()
+                return
+            }
+            addEditNoteViewModel.update(Note(intent.getIntExtra(EXTRA_ID, -1), title, desc, priority))
+        }
+        else{
+            addEditNoteViewModel.insert(Note(0, title, desc, priority))
+        }
 
         // Go to NoteActivity
         startActivity(Intent(this, NoteActivity::class.java))

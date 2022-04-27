@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AddNoteViewModel @Inject constructor(private val noteRepository: NoteRepository): ViewModel() {
+class AddEditNoteViewModel @Inject constructor(private val noteRepository: NoteRepository): ViewModel() {
 
     fun insert(note: Note) = viewModelScope.launch {
         noteRepository.insert(note)
