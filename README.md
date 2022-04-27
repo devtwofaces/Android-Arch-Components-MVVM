@@ -22,4 +22,4 @@ MVVM (Model-View-ViewModel) Android Architecture is used to build this applicati
 
 ### Improvements
 
-  If there are any improvements that can be made, please feel free to reach out to me on <a href="https://www.linkedin.com/in/rakshu12334/" target="_blank"> LinkedIn </a> or  <a href="mailto:dev.twofaces@gmail.com" target="_blank"> Gmail </a> 
+  If you don't understand something or If there are any improvements that can be made, please feel free to reach out to me on <a href="https://www.linkedin.com/in/rakshu12334/" target="_blank"> LinkedIn </a> or  <a href="mailto:dev.twofaces@gmail.com" target="_blank"> Gmail </a> 
