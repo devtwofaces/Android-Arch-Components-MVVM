@@ -76,6 +76,7 @@ class NoteActivity : AppCompatActivity(), NotesAdapter.OnItemClickListener {
 
     }
 
+
     override fun onItemClick(note: Note) {
         Log.d("CUSTOM_LOGS: ", "inside onItemClick()")
         val intent = Intent(this@NoteActivity, AddEditNoteActivity::class.java)
