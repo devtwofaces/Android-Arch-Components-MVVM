@@ -13,13 +13,13 @@ MVVM (Model-View-ViewModel) Android Architecture is used to build this applicati
 
 ### Credits/Reference: 
 
-  I've used this [playlist](https://www.youtube.com/playlist?list=PLrnPJCHvNZuDihTpkRs6SpZhqgBqPU118) for reference to create this application, which had the following features:
+  I've used this <a href="https://www.youtube.com/playlist?list=PLrnPJCHvNZuDihTpkRs6SpZhqgBqPU118" target="_blank">playlist</a> for reference to create this application, which had the following features:
 
 >#### Java + Room + View Model + RecyclerView + LiveData
 
-  Huge Shout-out to Florian Walther for making amazing Android content on [Coding in Flow](https://www.youtube.com/c/CodinginFlow/playlists). Go check it out!
+  Huge Shout-out to Florian Walther for making amazing Android content on <a href="https://www.youtube.com/c/CodinginFlow/playlists" target="_blank"> Coding in Flow </a>. Go check it out!
 
 
 ### Improvements
 
-  If there are any improvements that can be made, please feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/rakshu12334/) or [Gmail](mailto:dev.twofaces@gmail.com)
+  If there are any improvements that can be made, please feel free to reach out to me on <a href="https://www.linkedin.com/in/rakshu12334/" target="_blank"> LinkedIn </a> or  <a href="mailto:dev.twofaces@gmail.com" target="_blank"> Gmail </a> 
