@@ -15,7 +15,7 @@ MVVM (Model-View-ViewModel) Android Architecture is used to build this applicati
 
   I've used this <a href="https://www.youtube.com/playlist?list=PLrnPJCHvNZuDihTpkRs6SpZhqgBqPU118" target="_blank">playlist</a> for reference to create this application, which had the following features:
 
->#### Java + Room + View Model + RecyclerView + LiveData
+>#### Java + Room + ViewModel + RecyclerView + LiveData
 
   Huge Shout-out to Florian Walther for making amazing Android content on <a href="https://www.youtube.com/c/CodinginFlow/playlists" target="_blank"> Coding in Flow </a>. Go check it out!
 
