@@ -8,28 +8,27 @@ import javax.inject.Inject
 
 
 class NoteRepository @Inject constructor(
-//    private val noteDatabase: NoteDatabase,
-    private val noteDao: NoteDao
-) {
-
-    @Suppress("RedundantSuspendModifier")
-    @WorkerThread
+        private val noteDao: NoteDao
+    )
+{
+//    @Suppress("RedundantSuspendModifier")
+//    @WorkerThread
     suspend fun insert(note: Note){
         noteDao.insertNote(note)
     }
-    @WorkerThread
+//    @WorkerThread
     suspend fun update(note: Note){
         noteDao.updateNote(note)
     }
-    @WorkerThread
+//    @WorkerThread
     suspend fun delete(note: Note){
         noteDao.deleteNote(note)
     }
-    @WorkerThread
+//    @WorkerThread
     suspend fun deleteAllNotes(){
         noteDao.deleteALlNotes()
     }
-    @WorkerThread
+//    @WorkerThread
     fun getAllNotes(): Flow<List<Note>>{
         return noteDao.getAllNotes()
     }

@@ -15,10 +15,10 @@ interface NoteDao {
     @Update
     suspend fun updateNote(note: Note)
 
-    @Query("SELECT * FROM note_table ORDER BY priority DESC")
-    fun getAllNotes(): Flow<List<Note>>
-
     @Query("DELETE FROM note_table")
     suspend fun deleteALlNotes()
+
+    @Query("SELECT * FROM note_table ORDER BY priority DESC")
+    fun getAllNotes(): Flow<List<Note>>
 
 }
